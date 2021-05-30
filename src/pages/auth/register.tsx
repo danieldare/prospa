@@ -73,7 +73,7 @@ const Register = () => {
                     />
                 </InputWrapper>
                 <ButtonWrapper>
-                    <Button>Next</Button>
+                    <Button fullWidth>Next</Button>
                 </ButtonWrapper>
             </form>
         </AuthContainer>

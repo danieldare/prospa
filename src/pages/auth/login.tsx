@@ -29,7 +29,7 @@ const Login = () => {
             <HeadingTwo>An account with powerful , personalised tools all in one place</HeadingTwo>
             <form
                 onSubmit={handleSubmit(() => {
-                    history.push('/dashboard');
+                    history.push('/open-account');
                 })}
             >
                 <InputWrapper>
@@ -51,7 +51,7 @@ const Login = () => {
                     />
                 </InputWrapper>
                 <ButtonWrapper>
-                    <Button>Next</Button>
+                    <Button fullWidth>Next</Button>
                 </ButtonWrapper>
             </form>
         </AuthContainer>

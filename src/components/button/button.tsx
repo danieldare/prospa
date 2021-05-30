@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import React, { ButtonHTMLAttributes } from 'react';
 
@@ -34,7 +34,11 @@ const ButtonComponent = styled.button<IButtonProp>`
     border: 1px solid ${({ theme }) => theme.colors?.pinkShade}};
     color: ${({ theme }) => theme.colors?.white}};
 
-    ${({ fullWidth }) => fullWidth && 'width: 100%'}
+    ${({ fullWidth }) =>
+        fullWidth &&
+        css`
+            width: 100%;
+        `}
 
 
         &:hover {

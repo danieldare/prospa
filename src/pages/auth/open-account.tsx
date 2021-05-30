@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Button } from 'src/components/button';
 import icon from '../../assets/img/check.png';
 import {
@@ -89,6 +90,7 @@ const QuestionAndAnswerAccordion = ({ data, currentAccordion, handleAccordionCli
 };
 
 const OpenAccount = () => {
+    const history = useHistory();
     const [selectedAccordionIndex, setSelectedAccordion] = useState(0);
 
     return (
@@ -108,7 +110,9 @@ const OpenAccount = () => {
                     </>
                 ))}
                 <ButtonWrapper>
-                    <Button>Next</Button>
+                    <Button fullWidth onClick={() => history.push('/dashboard')}>
+                        Next
+                    </Button>
                 </ButtonWrapper>
             </OpenAccountContainer>
         </AuthContainer>

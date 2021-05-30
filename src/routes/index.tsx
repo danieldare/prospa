@@ -26,10 +26,10 @@ export const ProtectedRoute: FC<RouteProps> = ({ ...rest }: RouteProps) => {
 
 const Routes: FC<RouteProps> = () => (
     <Switch>
-        <UnProtectedRoute path="/" component={Register} />
-        <UnProtectedRoute path="/login" component={Login} />
-        <UnProtectedRoute path="/open-account" component={OpenAccount} />
-        <ProtectedRoute path="/dashboard" component={Dashboard} />
+        <UnProtectedRoute path="/" component={Register} exact />
+        <UnProtectedRoute path="/login" component={Login} exact />
+        <UnProtectedRoute path="/open-account" component={OpenAccount} exact />
+        <ProtectedRoute path="/dashboard" component={Dashboard} exact />
     </Switch>
 );
 
