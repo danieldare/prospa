@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from 'react';
 import { Button } from 'src/components/button';
 import icon from '../../assets/img/check.png';

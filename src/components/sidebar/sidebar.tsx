@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { ReactComponent as SideBarImage } from 'src/assets/img/sidebar-img.svg';
 import { ReactComponent as BrandIcon } from 'src/assets/img/prospa.svg';
 import { useEffect, useState } from 'react';
@@ -39,7 +40,7 @@ const sidebarData = [
     },
 ];
 
-const ProgressData = ({ data }: any) => (
+const ProgressData = ({ currentData }) => (
     <>
         <TitleText>Create mulitple sub-account</TitleText>
         <BriefText>
