@@ -10,11 +10,18 @@ export const DashboardSidebarContainer = styled.div`
     padding: 0px 30px;
     background-color: #fff;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+    display: grid;
+
+    @media (max-width: 854px) {
+        display: none;
+        flex-direction: column;
+    }
 `;
 
 export const SidebarFooter = styled.div`
     color: ${({ theme }) => theme.colors.white};
     align-self: flex-end;
+    margin-bottom: 20px;
 `;
 
 export const SideLink = styled(NavLink)`
@@ -110,7 +117,8 @@ export const DropdownContainer = styled.div`
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
     position: absolute;
     width: 233px;
-    top: 100px;
+    top: 80px;
+    left: 30px;
     opacity: 0;
     visibility: hidden;
     transition: all 300ms ease-out;

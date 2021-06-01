@@ -4,9 +4,7 @@ import React, { ButtonHTMLAttributes } from 'react';
 
 interface IButtonProp extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'css'> {
     fullWidth?: boolean;
-    variant?: 'primary' | 'secondary' | 'danger';
     loading?: boolean;
-    variantType?: 'grey' | 'black';
     children: React.ReactNode;
 }
 
@@ -21,7 +19,7 @@ const ButtonComponent = styled.button<IButtonProp>`
     text-align: center;
     padding: 1.2rem 2.4rem;
     overflow: hidden;
-    white-space: nowrap;
+    white-space: pre-wrap;
     text-overflow: ellipsis;
     font-size: 1.5rem;
     letter-spacing: 0;
@@ -33,6 +31,11 @@ const ButtonComponent = styled.button<IButtonProp>`
     background-color: ${({ theme }) => theme.colors?.pinkShade};
     border: 1px solid ${({ theme }) => theme.colors?.pinkShade}};
     color: ${({ theme }) => theme.colors?.white}};
+
+
+    &.bold{
+        font-weight: 700;
+    }
 
     ${({ fullWidth }) =>
         fullWidth &&

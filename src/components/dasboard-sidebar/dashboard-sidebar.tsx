@@ -1,6 +1,9 @@
+import AccountIcon from 'src/assets/img/accountIcon.png';
+import ProspaIcon from 'src/assets/img/prospa2.svg';
 import Icon from 'src/assets/img/sparkle.png';
+import { useLocation } from 'react-router-dom';
 import CaretIcon from 'src/assets/img/caret.png';
-import { useClickAway } from 'react-use';
+import { useClickAway } from 'use-click-away';
 import { useState, useRef } from 'react';
 import {
     DashboardSidebarContainer,
@@ -14,12 +17,13 @@ import {
     ProfileInfo,
     DropdownContainer,
     DropDownItem,
+    SidebarFooter,
 } from './dashboard-sidebar.style';
 
 const sideLinks = [
     {
         name: 'Accounts',
-        icon: Icon,
+        icon: AccountIcon,
         url: '/dashboard',
     },
     {
@@ -51,8 +55,8 @@ const sideLinks = [
 
 export const DashboardSidebar = () => {
     const dropDownRef = useRef(null);
-    const [dropDownVisibility, setDropDownVisibility] = useState(false);
 
+    const [dropDownVisibility, setDropDownVisibility] = useState(false);
     useClickAway(dropDownRef, () => setDropDownVisibility(false));
 
     function handleDropDown() {
@@ -66,32 +70,40 @@ export const DashboardSidebar = () => {
                 <DropDownItem>Business name 3</DropDownItem>
                 <DropDownItem className="add">Add a business</DropDownItem>
             </DropdownContainer>
-            <NavbarHeader>
-                <ProfileInfo>
-                    <InitialsContainer>BN</InitialsContainer>
-                    <HeaderText>
-                        <span className="name">Clayvant Inc</span>
-                        <span className="action">Manage account</span>
-                    </HeaderText>
-                </ProfileInfo>
-                <button type="button" onClick={handleDropDown}>
-                    <img
-                        src={CaretIcon}
-                        alt="icon"
-                        className={dropDownVisibility ? 'rotate' : ''}
-                    />
-                </button>
-            </NavbarHeader>
-            {sideLinks.map((link) => (
-                <SideLinkContainer>
-                    <IconContainer>
-                        <SideLinkIcon src={link.icon} alt="icon" />
-                    </IconContainer>
-                    <SideLink activeClassName="active" to={link?.url}>
-                        {link.name}
-                    </SideLink>
-                </SideLinkContainer>
-            ))}
+            <div>
+                <NavbarHeader>
+                    <ProfileInfo>
+                        <InitialsContainer>BN</InitialsContainer>
+                        <HeaderText>
+                            <span className="name">Clayvant Inc</span>
+                            <span className="action">Manage account</span>
+                        </HeaderText>
+                    </ProfileInfo>
+                    <button type="button" onClick={handleDropDown} ref={dropDownRef}>
+                        <img
+                            src={CaretIcon}
+                            alt="icon"
+                            className={dropDownVisibility ? 'rotate' : ''}
+                        />
+                    </button>
+                </NavbarHeader>
+                {sideLinks.map((link) => (
+                    <SideLinkContainer>
+                        <IconContainer>
+                            <SideLinkIcon src={link.icon} alt="icon" />
+                        </IconContainer>
+                        <SideLink
+                            activeClassName="active"
+                            to={link?.url === '/dashboard' ? '/dashboard' : '0'}
+                        >
+                            {link.name}
+                        </SideLink>
+                    </SideLinkContainer>
+                ))}
+            </div>
+            <SidebarFooter>
+                <img src={ProspaIcon} alt="icon" />
+            </SidebarFooter>
         </DashboardSidebarContainer>
     );
 };
