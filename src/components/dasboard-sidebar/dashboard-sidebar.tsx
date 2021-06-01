@@ -1,7 +1,6 @@
 import AccountIcon from 'src/assets/img/accountIcon.png';
 import ProspaIcon from 'src/assets/img/prospa2.svg';
 import Icon from 'src/assets/img/sparkle.png';
-import { useLocation } from 'react-router-dom';
 import CaretIcon from 'src/assets/img/caret.png';
 import { useClickAway } from 'use-click-away';
 import { useState, useRef } from 'react';
